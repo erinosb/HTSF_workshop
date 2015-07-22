@@ -39,19 +39,19 @@ Let's make a file structure.
 Start by creating the directory where you will conduct your analysis. I typically give my project ProjectNumbers.
 
 ```
-mkdir 002_RNASeqDemo
-cd 002_RNASeqDemo
+$ mkdir 002_RNASeqDemo
+$ cd 002_RNASeqDemo
 ```
 
 OK, now we are inside the directory `002_RNASeqDemo`. Now that we are here, initiate the project by starting some sub-directories and a README document.
 
 ```
-mkdir 00_logs
-mkdir 01_ref
-mkdir 02_raw
-mkdir 03_processed
-mkdir 04_results
-mkdir 05_bin
+$ mkdir 00_logs
+$ mkdir 01_ref
+$ mkdir 02_raw
+$ mkdir 03_processed
+$ mkdir 04_results
+$ mkdir 05_bin
 ```
 
 ### Get the dataset:
