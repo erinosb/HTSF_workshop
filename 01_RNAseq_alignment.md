@@ -18,7 +18,8 @@ tophat2
 htseq-count
 r    
 samtools   
-bedtools   
+bedtools
+bamtools
 
 
 To load them, type:
@@ -26,11 +27,12 @@ To load them, type:
 ```
 $ module avail            # List all the modules available.
 
-$ module load tophat2     # Load tophat2
+$ module load tophat     # Load tophat2
 $ module load htseq-count #Load htseq-count
 $ module load r           # Load r
 $ module load samtools    # Load samtools
-$ module load bedtools    # Load bedtools
+#$ module load bedtools    # Load bedtools
+#$ module load bamtools    # Load bamtools
 
 $ module list             # List all loaded modules
 ```
@@ -54,15 +56,16 @@ $ cd 01_RNASeqDemo
 OK, now we are inside the directory `01_RNASeqDemo`. Now that we are here, initiate the project by starting some sub-directories and a README document.
 
 ```
-$ mkdir 00_logs
-$ mkdir 01_ref
-$ mkdir 02_raw
-$ mkdir 03_processed
-$ mkdir 04_results
-$ mkdir 05_bin
-$ mkdir 06_test
-$ touch 01_RNASeqDemo_README.txt
+mkdir 00_logs
+mkdir 01_ref
+mkdir 02_raw
+mkdir 03_processedInput
+mkdir 04_resultsInput
+mkdir 05_scripts
+mkdir 06_test
+touch 01_RNASeqDemo_README.txt
 ```
+
 
 ### Get the dataset:
 
@@ -88,9 +91,42 @@ Copy these files to the directory called /raw within your project directory:
 
 
 ```
-$ cd 02_raw
-$ cp /proj/seq/data/RNAseq-HSL/reads/*.fastq.gz .
-$ ls
+cd 02_rawInput
+cp /proj/seq/data/RNAseq-HSL/reads/*.fastq.gz .
+ls
+```
+
+### Get the scripts
+
+I have pre-written a number of scripts for you to run as examples. To obtain these, navigate to `~/01_RNASeqDemo/05_scripts/` and copy the following files like so...
+
+```
+pwd                                                     # Should show that you are in your version of ~/01_RNASeqDemo/05_scripts/
+cp /netscr/erinosb/HTSF_RNASeq_Demo/05_scripts/*.sh .   # Copy scripts from erinosb location to your local 05_scripts area
+```
+
+
+
+
+
+## The basics of a tophat command
+
+To run tophat, simply execute...
+
+> $ **tophat**&emsp;*[options]*&emsp;*\<genome_index_base\>&emsp;\<reads1_1[,...,readsN_1]\>&emsp;[reads1_2,...readsN_2]*
+
+```
+tophat                      # the literal command
+[options]                   # any optional arguments to customize the way that tophat runs
+<genome_index_base>         # The genome you want to reference, built as a bowtie2 index and written in the form /path/to/rootname
+<reads1_1[,...,readsN_1]    # A list of comma-separated fastq files to align
+[reads1_2,...readsN_2]      # If you are doing paired-end sequencing, the matching 'right-hand' sequences you want to align
+```
+
+How did we just run tophat? Breaking down the commands, this is what we did...
+
+```
+
 ```
 
 
