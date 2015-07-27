@@ -254,11 +254,14 @@ If we are running multiple samples, we don't need to build the transcriptome ind
 Tophat is really flexible! It has a lot of options! Depending on your experiment, you may want to change some of the default settings to something that is more efficient, works for your specific organism, or 
 
 **Useful flags to adjust**
-+ **-i/--min-intron-length** The minimum intron length. Default is 70.
-+ **-I/--max-intron-length** the maximum intron length. Deault is 500000.
-+ -r/--mate-inner-dist Expected (mean) inner distance between mate pairs. Default is 50bp.
-+ --mate-std-dev The standard deviation for the distribution on inner distance between mate pairs. Default is 20 bp.
-+ -N/--read-mismatches Find read alignments having more than these many mismatches are discarded. Default is 2.
++ **-o/--output-dir <string>** The output directory. Change this for every sample.
++ **-i/--min-intron-length** The minimum intron length. Default is 70. This is optimized for mammals. For model organisms, you might need to set this smaller.
++ **-I/--max-intron-length** the maximum intron length. Deault is 500000. This is optimized for mammals. For model organisms, you might need to set this smaller.
++ **-r/--mate-inner-dist** Expected (mean) inner distance between mate pairs for paired end reads. Default is 50bp.
++ **-N/--read-mismatches** Find read alignments having more than these many mismatches are discarded. Default is 2.
++ **--g/--max-multihits <int>** Sets how many possible locations in the genome a given read can match to and still be retained as a successful alignment.
++ **bowtie2 reference files** Change this for each organism you use. There are many organism's .bt2 files already preloaded on the cluster for you at `/proj/seq/data/`
++ **.fastq.gz** Of course, this will change for each sample!
 
 
 
