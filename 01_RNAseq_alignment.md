@@ -151,7 +151,7 @@ ONE OPTION...
 We could execute the command within a bsub command...
 
 ```
-bsub -q week -n 4 -R "span[hosts=1]" -o %J_tophat.log "tophat -p 4 --max-multihits 1 -o ../04_results/tophat/Gm10847_opd -G /proj/seq/data/HG19_UCSC/Annotation/Genes/genes.gtf /proj/seq/data/HG19_UCSC/Sequence/Bowtie2Index/genome ../03_processedInput/Gm10847_R1_trim.fastq.gz ../03_processedInput/Gm10847_R2_trim.fastq.gz"
+bsub -q week -n 4 -R "span[hosts=1]" -o ../00_logs/%J_tophat.log "tophat -p 4 --max-multihits 1 -o ../04_results/tophat/Gm10847_opd -G /proj/seq/data/HG19_UCSC/Annotation/Genes/genes.gtf /proj/seq/data/HG19_UCSC/Sequence/Bowtie2Index/genome ../03_processedInput/Gm10847_R1_trim.fastq.gz ../03_processedInput/Gm10847_R2_trim.fastq.gz"
 
 NOTE: -p in the tophat command and -n in the bsub command must be compatible
 ```
@@ -203,7 +203,42 @@ The log provides information on the completion of each step in TopHat.
 Provides numbers of reads processed and the minimum/maximum read length in the data set.
 
 **unmapped.bam**   
-This one contains unaligned reads.
+This one .bam file contains the unaligned reads.
+
+## All samples
+
+Our example only aligned one or our ten datasets. To run the other 9, we can make a script that simply lists all the commands to generate the full aligment dataset:
+
+**script_demo_ALL.sh**
+```
+mkdir ../04_results/tophat/Gm10847_opd
+tophat -p 4 --max-multihits 1 -o ../04_results/tophat/Gm10847_opd -G /proj/seq/data/HG19_UCSC/Annotation/Genes/genes.gtf /proj/seq/data/HG19_UCSC/Sequence/Bowtie2Index/genome ../03_processedInput/Gm10847_R1_trim.fastq.gz ../03_processedInput/Gm10847_R2_trim.fastq.gz
+```
+
+However, I find it easier, and less typing, to write a short shell script that loops through every sample automatically.
+
+Look at the script **script03_tophat_looped.sh** as an example. This script executes in about 5 hours when run with 
+
+```
+bash command
+```
+
+## Tophat can be made more efficient.
+
+When tophat aligns to a transcriptome first, it does two things:
+1. Goes through the .gtf/gff file
+2. builds a transcriptome index off of the .gtf/.gff file
+3. aligns the reads to the transcriptome index and genome index given.
+
+If we are running multiple samples, we don't need to build the transcriptome index every time. Go to the script **04_tophat_alternatives.sh** to see how you can write a script that uses this more efficient style.
+
+## Options to modify
+
+Tophat is really flexible! It has a lot of options! Depending on your experiment, you may want to change some of the default settings to something that is more efficient in 
+
+
+
+
 
 
 
