@@ -4,11 +4,11 @@ Welcome to an introduction of RNA-seq analysis, a part of the High Throughput Se
 
 ## 0. Setup
 
-### Log in
+#### Log in
 
 Login to Killdevil with your onyen.
 
-### Load modules
+#### Load modules
 
 One of the first things we'll have to do is load up all our modules. On Kure and Killdevil, there are many applications and programs pre-installed. To use them, you simply need to load them!
 
@@ -40,7 +40,7 @@ $ module list              # List all loaded modules
 To learn more about modules, read [Getting Started with Killdevil -- Application Environment](http://help.unc.edu/help/getting-started-on-killdevil/#P92_10973).
 
 
-### Start a directory structure
+#### Start a directory structure
 
 It is REALLY important to stay organized while performing computational projects. If you can't keep track or keep a record of what you are doing, you will have to do it again... or worse, you might make a mistake! So be efficient by taking good notes and keeping things organized.
 
@@ -67,7 +67,7 @@ touch 01_RNASeqDemo_README.txt
 ```
 
 
-### Get the dataset:
+#### Get the dataset:
 
 We will obtain a demonstration dataset. We are going to use a set of 10 files that came from 10 different RNAseq libraries (5
 Male cell lines, 5 female cell lines).
@@ -95,21 +95,8 @@ cp /proj/seq/data/RNAseq-HSL/reads/*.fastq.gz .
 ls
 ```
 
-### Get some human genome reference data
 
-The great thing about UNC Research Computing is that there are lots of resources already loaded up on the computing cluster for you to use. Browsing `/proj/seq/data/` you can find many genomes and genome-level resources for common organisms. We will use the genome indexes for the human genome that are located in this area. 
-
-There are a few other files in this area that we will duplicate in our own directory space. To do this, navigate to your version of `<yourversion>/01_RNASeqDemo/01_ref/` and call the following commands...
-
-```
-pwd                                                   # Should show that you are in your version of ~/01_RNASeqDemo/01_ref/
-cp /proj                                              # Obtain .gtf file
-cp                                                    # Obtain .gtf file notes
-cp                                                    # Obtain a list of all the human chromosomes and their lengths
-````
-
-
-### Get the scripts
+#### Get the scripts
 
 I have pre-written a number of scripts for you to run as examples. To obtain these, navigate to `<yourversion>/01_RNASeqDemo/05_scripts/` and copy the following files like so...
 
@@ -119,7 +106,7 @@ cp /netscr/erinosb/HTSF_RNASeq_Demo/05_scripts/*.sh .   # Copy scripts from erin
 ```
 
 
-### Align your first sample using tophat
+#### Align your first sample using tophat
 
 We are going to align one sample using tophat. It should take about 20 minutes and will be done by the time we are finished with the introductory lecture. To execute this command, follow these directions
 
@@ -144,7 +131,7 @@ tophat                      # the literal command
 [reads1_2,...readsN_2]      # If you are doing paired-end sequencing, the matching 'right-hand' sequences you want to align
 ```
 
-### Our parameters for running tophat on the first of 10 samples...
+#### Our parameters for running tophat on the first of 10 samples...
 
 ```
 tophat
@@ -191,7 +178,7 @@ $ pico script01_trim.sh
 ```
 
 
-### Tophat Output Files
+#### Tophat Output Files
 
 Tophat will produce 8 output files. Since we specified to put our output files in `<yourlocation>/01_RNASeqDemo/04_results/tophat`, go to that location and explore the output. You should find...
 
