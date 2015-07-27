@@ -140,6 +140,10 @@ tophat                      # the literal command
 
 #### Our parameters for running tophat on the first of 10 samples...
 
+Tophat has a lot of options. These allow us to customize how tophat runs based on our personal preferences. For a full list of tophat options, consult the [Tophat manual](https://ccb.jhu.edu/software/tophat/manual.shtml).
+
+Today we will run tophat on our first of ten sequence samples like so...
+
 ```
 tophat
   -p 4                                                       # use four threads
@@ -151,11 +155,11 @@ tophat
   ../03_processedInput/Gm10847_R2_trim.fastq.gz              # Input .fastq reads to align... paired end R2
 ```
 
-To execute our tophat command, we will use the Load Sharing Facility (LSF) using bsub commands.
+To execute this command, we will use the Load Sharing Facility (LSF) using bsub commands. There are a few main ways to do this.
 
 ONE OPTION... 
 
-We could execute the command within a bsub command...
+We *could* execute the command within a bsub command...
 
 ```
 bsub -q week -n 4 -R "span[hosts=1]" -o ../00_logs/%J_tophat.log "tophat -p 4 --max-multihits 1 -o ../04_results/tophat/Gm10847_opd -G /proj/seq/data/HG19_UCSC/Annotation/Genes/genes.gtf /proj/seq/data/HG19_UCSC/Sequence/Bowtie2Index/genome ../03_processedInput/Gm10847_R1_trim.fastq.gz ../03_processedInput/Gm10847_R2_trim.fastq.gz"
@@ -163,18 +167,19 @@ bsub -q week -n 4 -R "span[hosts=1]" -o ../00_logs/%J_tophat.log "tophat -p 4 --
 NOTE: -p in the tophat command and -n in the bsub command must be compatible
 ```
 
-Wow! This is getting really cluttered fast!   
+Wow! This is getting really cluttered fast!  
+
 It is often easier to package the tophat commands into a shell script for ease of execution.   
 In this case, the script will look like...
 
-**script01_trim.sh**
+**script02_tophat_.sh**
 ```
 #!/bin/bash
 
 tophat -p 4 --max-multihits 1 -o ../04_results/tophat/Gm10847_opd -G /proj/seq/data/HG19_UCSC/Annotation/Genes/genes.gtf /proj/seq/data/HG19_UCSC/Sequence/Bowtie2Index/genome ../03_processedInput/Gm10847_R1_trim.fastq.gz ../03_processedInput/Gm10847_R2_trim.fastq.gz
 ```
 
-Then you can navigate to the directory where script01_trim.sh is located and run the script using bsub like so...
+Execute **script
 
 > bsub -q week -n 4 -R "span[hosts=1]" -o %J_tophat.log "bash script02_tophat_single.sh"
 
