@@ -169,12 +169,12 @@ tophat -p 4 --max-multihits 1 -o ../04_results/tophat/Gm10847_opd -G /proj/seq/d
 
 Then you can navigate to the directory where script01_trim.sh is located and run the script using bsub like so...
 
-> bsub -q week -n 4 -R "span[hosts=1]" -o %J_tophat.log "bash script01_trim.sh"
+> bsub -q week -n 4 -R "span[hosts=1]" -o %J_tophat.log "bash script02_tophat_single.sh"
 
 Let's look at bash script01_trim.sh...
 
 ```
-$ pico script01_trim.sh
+$ pico script02_tophat_singlesh
 ```
 
 
