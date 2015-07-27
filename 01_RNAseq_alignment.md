@@ -119,6 +119,10 @@ $ pwd                                             # Should show that you are in 
 $ bsub -q week -n 4 -R "span[hosts=1]" -o %J_tophat.log "bash script01_trim.sh"
 ```
 
+&nbsp;
+
+&nbsp;
+_______
 
 ## The basics of a tophat command
 
@@ -225,6 +229,11 @@ Look at the script **script03_tophat_looped.sh** as an example. This script exec
 ```
 bash command
 ```
+
+&nbsp;
+
+&nbsp;
+_______
 
 ## Tophat can be made more efficient.
 
