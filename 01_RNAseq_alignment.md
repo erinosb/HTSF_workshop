@@ -195,29 +195,30 @@ $ pico script01_trim.sh
 
 Tophat will produce 8 output files. Since we specified to put our output files in `<yourlocation>/01_RNASeqDemo/04_results/tophat`, go to that location and explore the output. You should find...
 
+> Navigate to <yourlocation>/01_RNASeqDemo/04_results/tophat
+
 **accepted_hits.bam**   
-This is useful for downstream analysis in HTSeq, data viewing in IGV and so on. This is a list of read alignments in SAM format (bam is the binary version) can be converted via:
+This is the main alignment output file! This is a list of read alignments in BAM format (bam is the binary version).
 
-**samtools view**   
-Information about sam, bam and cram formats.
-
-**junctions.bed**   
-The UCSC BED tack of junctions reported by TopHat. A BED format provides a flexible way to define the data lines in an annotation track.
+**align_summary.txt**   
+Provide alignment summary. 
 
 **insertions.bed/deletions.bed**   
 The USCS BED tracks of insertions and deletions reported by TopHat.
 
-**prep_reads.info**   
-Provides numbers of reads processed and the minimum/maximum read length in the data set.
+**junctions.bed**   
+The UCSC BED track of junctions reported by TopHat. 
 
 **logs**   
 The log provides information on the completion of each step in TopHat.
 
-**unmapped.bam**   
-This one contains unaligned reads, just like accepted_hits.bam, except unaligned... This can provide a lot of useful information.
+**prep_reads.info**   
+Provides numbers of reads processed and the minimum/maximum read length in the data set.
 
-**align_summary.txt**   
-Provide alignment summary. Important for publication and how well the mapping was.
+**unmapped.bam**   
+This one contains unaligned reads.
+
+
 
 
 
