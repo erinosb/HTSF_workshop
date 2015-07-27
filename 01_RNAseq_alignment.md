@@ -56,14 +56,14 @@ $ cd 01_RNASeqDemo
 OK, now we are inside the directory `01_RNASeqDemo`. Now that we are here, initiate the project by starting some sub-directories and a README document.
 
 ```
-mkdir 00_logs
-mkdir 01_ref
-mkdir 02_raw
-mkdir 03_processedInput
-mkdir 04_resultsInput
-mkdir 05_scripts
-mkdir 06_test
-touch 01_RNASeqDemo_README.txt
+$ mkdir 00_logs
+$ mkdir 01_ref
+$ mkdir 02_raw
+$ mkdir 03_processedInput
+$ mkdir 04_resultsInput
+$ mkdir 05_scripts
+$ mkdir 06_test
+$ touch 01_RNASeqDemo_README.txt
 ```
 
 
@@ -90,9 +90,11 @@ Gm12877 M
 Copy these files to the directory called /raw within your project directory:
 
 ```
-cd 02_rawInput
-cp /proj/seq/data/RNAseq-HSL/reads/*.fastq.gz .
-ls
+#NAVIGATE TO <yourversion>/01_RNASeqDemo
+$ pwd                                               # Should show you <yourversion>/01_RNASeqDemo
+$ cd 02_rawInput                                    # Change into the 02_rawInput directory
+$ cp /proj/seq/data/RNAseq-HSL/reads/*.fastq.gz .   # Copy a dataset from the HTSF shared data directory into your 02_rawInput directory.
+$ ls                                                # Look and see what you got!
 ```
 
 
@@ -101,8 +103,9 @@ ls
 I have pre-written a number of scripts for you to run as examples. To obtain these, navigate to `<yourversion>/01_RNASeqDemo/05_scripts/` and copy the following files like so...
 
 ```
-pwd                                                     # Should show that you are in your version of <yourversion>/01_RNASeqDemo/05_scripts/
-cp /netscr/erinosb/HTSF_RNASeq_Demo/05_scripts/*.sh .   # Copy scripts from erinosb location to your local 05_scripts area
+$ pwd                                                     # Should show that you are in your version of <yourversion>/01_RNASeqDemo/05_scripts/
+$ cp /netscr/erinosb/HTSF_RNASeq_Demo/05_scripts/*.sh .   # Copy scripts from erinosb location to your local 05_scripts area
+$ ls                                                      # Look at what you have
 ```
 
 
