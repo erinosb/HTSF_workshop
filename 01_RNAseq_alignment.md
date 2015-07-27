@@ -186,7 +186,7 @@ Wow! This is getting really cluttered fast!
 It is often easier to package the tophat commands into a shell script for ease of execution.   
 In this case, the script will look like...
 
-**script02_tophat_.sh**
+**script02_tophat_single.sh**
 ```bash
 ################ DON'T EXECUTE #########################
 ################ EXAMPLE ONLY ##########################
@@ -200,7 +200,7 @@ Execute **script
 
 > bsub -q week -n 4 -R "span[hosts=1]" -o %J_tophat.log "bash script02_tophat_single.sh"
 
-Let's look at bash script01_trim.sh...
+Let's look at bash script02_tophat_single.sh...
 
 ```
 #NAVIGATE TO <yourversion>/01_RNASeqDemo/05_scripts/.
