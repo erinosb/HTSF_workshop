@@ -127,14 +127,32 @@ Running tophat on our samples...
 
 ```
 tophat
-  -p 4 \
-  --max-multihits 1 \
-  -o ../04_results/tophat/Gm10847_opd \
-  -G /proj/seq/data/HG19_UCSC/Annotation/Genes/genes.gtf \
-  /proj/seq/data/HG19_UCSC/Sequence/Bowtie2Index/genome \
-  ../03_processedInput/Gm10847_R1_trim.fastq.gz \
-  ../03_processedInput/Gm10847_R2_trim.fastq.gz
+  -p 4                                                       # use four threads
+  --max-multihits 1                                          # don't report any reads with more than one match to the genome
+  -o ../04_results/tophat/Gm10847_opd                        # output directory
+  -G /proj/seq/data/HG19_UCSC/Annotation/Genes/genes.gtf     # Use a transcriptome first
+  /proj/seq/data/HG19_UCSC/Sequence/Bowtie2Index/genome      # This is the reference genome index (Bowtie2)
+  ../03_processedInput/Gm10847_R1_trim.fastq.gz              # Input .fastq reads to align... paired-end R1
+  ../03_processedInput/Gm10847_R2_trim.fastq.gz              # Input .fastq reads to align... paired end R2
 ```
+
+To execute the tophat command, we need to use the Load Sharing Facility (LSF) using bsub commands.
+
+ONE OPTION... 
+
+We could execute the command within a bsub command...
+
+```
+bsub -q week -n 4 -R "span[hosts=1]" -o %J_tophat.log "tophat -p 4 --max-multihits 1 -o ../04_results/tophat/Gm10847_opd -G /proj/seq/data/HG19_UCSC/Annotation/Genes/genes.gtf /proj/seq/data/HG19_UCSC/Sequence/Bowtie2Index/genome ../03_processedInput/Gm10847_R1_trim.fastq.gz ../03_processedInput/Gm10847_R2_trim.fastq.gz"
+
+NOTE: -p in the tophat command and -n in the bsub command must be compatible
+```
+
+
+
+
+
+
 
 
 
