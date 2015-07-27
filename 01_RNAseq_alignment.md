@@ -64,14 +64,9 @@ OK, now we are inside the directory `01_RNASeqDemo`. Now that we are here, initi
 $ pwd                             # Use this to check that you are located where you want to be. It is probably /netscr/<onyen>/01_RNASeqDemo/ which we are refering to as <yourversion>/01_RNASeqDemo/
 
 #EXECUTE THESE COMMANDS
-$ mkdir 00_logs
-$ mkdir 01_ref
-$ mkdir 02_raw
-$ mkdir 03_processedInput
-$ mkdir 04_resultsInput
-$ mkdir 05_scripts
-$ mkdir 06_test
+$ mkdir 00_logs 01_ref 02_raw 03_processedInput 04_resultsInput 05_scripts 06_test
 $ touch 01_RNASeqDemo_README.txt
+$ ls
 ```
 
 
