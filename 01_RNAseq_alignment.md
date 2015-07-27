@@ -123,7 +123,7 @@ tophat                      # the literal command
 [reads1_2,...readsN_2]      # If you are doing paired-end sequencing, the matching 'right-hand' sequences you want to align
 ```
 
-Running tophat on our samples...
+Running tophat on our first sample...
 
 ```
 tophat
@@ -147,6 +147,23 @@ bsub -q week -n 4 -R "span[hosts=1]" -o %J_tophat.log "tophat -p 4 --max-multihi
 
 NOTE: -p in the tophat command and -n in the bsub command must be compatible
 ```
+
+Wow! This is getting really cluttered fast! It is often easier to package the tophat commands into a shell script for ease of execution.
+
+In this case, the script will look like...
+
+**script01_trim.sh**
+```
+#!/bin/bash
+
+tophat -p 4 --max-multihits 1 -o ../04_results/tophat/Gm10847_opd -G /proj/seq/data/HG19_UCSC/Annotation/Genes/genes.gtf /proj/seq/data/HG19_UCSC/Sequence/Bowtie2Index/genome ../03_processedInput/Gm10847_R1_trim.fastq.gz ../03_processedInput/Gm10847_R2_trim.fastq.gz
+```
+
+Then you can execute the command like so...
+
+> bsub -q week -n 4 -R "span[hosts=1]" -o %J_tophat.log "bash script01_trim.sh"
+
+
 
 
 
