@@ -180,9 +180,9 @@ $ pico script01_trim.sh
 
 #### Tophat Output Files
 
-Tophat will produce 8 output files. Since we specified to put our output files in `<yourlocation>/01_RNASeqDemo/04_results/tophat`, go to that location and explore the output. You should find...
+Tophat will produce 8 output files. Since we specified to put our output files in `<yourlocation>/01_RNASeqDemo/04_results/tophat`. Go to that location and explore the output. 
 
-> Navigate to <yourlocation>/01_RNASeqDemo/04_results/tophat
+> Navigate to \<yourlocation\>/01_RNASeqDemo/04_results/tophat
 
 **accepted_hits.bam**   
 This is the main alignment output file! This is a list of read alignments in BAM format (bam is the binary version).
