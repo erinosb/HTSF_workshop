@@ -123,10 +123,17 @@ tophat                      # the literal command
 [reads1_2,...readsN_2]      # If you are doing paired-end sequencing, the matching 'right-hand' sequences you want to align
 ```
 
-How did we just run tophat? Breaking down the commands, this is what we did...
+Running tophat on our samples...
 
 ```
-
+tophat
+  -p 4 \
+  --max-multihits 1 \
+  -o ../04_results/tophat/Gm10847_opd \
+  -G /proj/seq/data/HG19_UCSC/Annotation/Genes/genes.gtf \
+  /proj/seq/data/HG19_UCSC/Sequence/Bowtie2Index/genome \
+  ../03_processedInput/Gm10847_R1_trim.fastq.gz \
+  ../03_processedInput/Gm10847_R2_trim.fastq.gz
 ```
 
 
