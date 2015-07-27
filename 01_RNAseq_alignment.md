@@ -25,16 +25,16 @@ bamtools
 To load them, type:
 
 ```
-$ module avail            # List all the modules available.
+$ module avail             # List all the modules available.
 
-$ module load tophat     # Load tophat2
-$ module load htseq-count #Load htseq-count
-$ module load r           # Load r
-$ module load samtools    # Load samtools
+$ module load tophat       # Load tophat2
+$ module load htseq-count  #Load htseq-count
+$ module load r            # Load r
+$ module load samtools     # Load samtools
 #$ module load bedtools    # Load bedtools
 #$ module load bamtools    # Load bamtools
 
-$ module list             # List all loaded modules
+$ module list              # List all loaded modules
 ```
 
 To learn more about modules, read [Getting Started with Killdevil -- Application Environment](http://help.unc.edu/help/getting-started-on-killdevil/#P92_10973).
@@ -89,24 +89,45 @@ Gm12877 M
 
 Copy these files to the directory called /raw within your project directory:
 
-
 ```
 cd 02_rawInput
 cp /proj/seq/data/RNAseq-HSL/reads/*.fastq.gz .
 ls
 ```
 
-### Get the scripts
+### Get some human genome reference data
 
-I have pre-written a number of scripts for you to run as examples. To obtain these, navigate to `~/01_RNASeqDemo/05_scripts/` and copy the following files like so...
+The great thing about UNC Research Computing is that there are lots of resources already loaded up on the computing cluster for you to use. Browsing `/proj/seq/data/` you can find many genomes and genome-level resources for common organisms. We will use the genome indexes for the human genome that are located in this area. 
+
+There are a few other files in this area that we will duplicate in our own directory space. To do this, navigate to your version of `<yourversion>/01_RNASeqDemo/01_ref/` and call the following commands...
 
 ```
-pwd                                                     # Should show that you are in your version of ~/01_RNASeqDemo/05_scripts/
+pwd                                                   # Should show that you are in your version of ~/01_RNASeqDemo/01_ref/
+cp /proj                                              # Obtain .gtf file
+cp                                                    # Obtain .gtf file notes
+cp                                                    # Obtain a list of all the human chromosomes and their lengths
+````
+
+
+### Get the scripts
+
+I have pre-written a number of scripts for you to run as examples. To obtain these, navigate to `<yourversion>/01_RNASeqDemo/05_scripts/` and copy the following files like so...
+
+```
+pwd                                                     # Should show that you are in your version of <yourversion>/01_RNASeqDemo/05_scripts/
 cp /netscr/erinosb/HTSF_RNASeq_Demo/05_scripts/*.sh .   # Copy scripts from erinosb location to your local 05_scripts area
 ```
 
 
+### Align your first sample using tophat
 
+We are going to align one sample using tophat. It should take about 20 minutes and will be done by the time we are finished with the introductory lecture. To execute this command, follow these directions
+
+```
+#Navigate to   <yourversion>/01_RNASeqDemo/05_scripts/
+$ pwd                                             # Should show that you are in <yourversion>/01_RNASeqDemo/05_scripts/
+$ bsub -q week -n 4 -R "span[hosts=1]" -o %J_tophat.log "bash script01_trim.sh"
+```
 
 
 ## The basics of a tophat command
@@ -123,7 +144,7 @@ tophat                      # the literal command
 [reads1_2,...readsN_2]      # If you are doing paired-end sequencing, the matching 'right-hand' sequences you want to align
 ```
 
-Running tophat on our first sample...
+Our parameters for running tophat on the first of 10 samples...
 
 ```
 tophat
@@ -136,7 +157,7 @@ tophat
   ../03_processedInput/Gm10847_R2_trim.fastq.gz              # Input .fastq reads to align... paired end R2
 ```
 
-To execute the tophat command, we need to use the Load Sharing Facility (LSF) using bsub commands.
+To execute our tophat command, we will use the Load Sharing Facility (LSF) using bsub commands.
 
 ONE OPTION... 
 
@@ -148,8 +169,8 @@ bsub -q week -n 4 -R "span[hosts=1]" -o %J_tophat.log "tophat -p 4 --max-multihi
 NOTE: -p in the tophat command and -n in the bsub command must be compatible
 ```
 
-Wow! This is getting really cluttered fast! It is often easier to package the tophat commands into a shell script for ease of execution.
-
+Wow! This is getting really cluttered fast!   
+It is often easier to package the tophat commands into a shell script for ease of execution.   
 In this case, the script will look like...
 
 **script01_trim.sh**
@@ -159,7 +180,7 @@ In this case, the script will look like...
 tophat -p 4 --max-multihits 1 -o ../04_results/tophat/Gm10847_opd -G /proj/seq/data/HG19_UCSC/Annotation/Genes/genes.gtf /proj/seq/data/HG19_UCSC/Sequence/Bowtie2Index/genome ../03_processedInput/Gm10847_R1_trim.fastq.gz ../03_processedInput/Gm10847_R2_trim.fastq.gz
 ```
 
-Then you can execute the command like so...
+Then you can navigate to the directory where script01_trim.sh is located and run the script using bsub like so...
 
 > bsub -q week -n 4 -R "span[hosts=1]" -o %J_tophat.log "bash script01_trim.sh"
 
