@@ -28,12 +28,12 @@ To load them, type:
 $ module avail             # List all the modules available.
 
 $ module load tophat       # Load tophat2
-$ module load htseq-count  #Load htseq-count
+$ module load htseq-count  # Load htseq-count
 $ module load r            # Load r
 $ module load samtools     # Load samtools
-#$ module load bedtools    # Load bedtools
-#$ module load bamtools    # Load bamtools
-
+$ module load bedtools     # Load bedtools
+$ module load bamtools     # Load bamtools
+$ module load pico         # Load pico
 $ module list              # List all loaded modules
 ```
 
@@ -144,7 +144,7 @@ tophat                      # the literal command
 [reads1_2,...readsN_2]      # If you are doing paired-end sequencing, the matching 'right-hand' sequences you want to align
 ```
 
-Our parameters for running tophat on the first of 10 samples...
+### Our parameters for running tophat on the first of 10 samples...
 
 ```
 tophat
@@ -183,6 +183,49 @@ tophat -p 4 --max-multihits 1 -o ../04_results/tophat/Gm10847_opd -G /proj/seq/d
 Then you can navigate to the directory where script01_trim.sh is located and run the script using bsub like so...
 
 > bsub -q week -n 4 -R "span[hosts=1]" -o %J_tophat.log "bash script01_trim.sh"
+
+Let's look at bash script01_trim.sh...
+
+```
+$ pico script01_trim.sh
+```
+
+
+### Tophat Output Files
+
+Tophat will produce 8 output files. Since we specified to put our output files in `<yourlocation>/01_RNASeqDemo/04_results/tophat`, go to that location and explore the output. You should find...
+
+**accepted_hits.bam**   
+This is useful for downstream analysis in HTSeq, data viewing in IGV and so on. This is a list of read alignments in SAM format (bam is the binary version) can be converted via:
+
+**samtools view**   
+Information about sam, bam and cram formats.
+
+**junctions.bed**   
+The UCSC BED tack of junctions reported by TopHat. A BED format provides a flexible way to define the data lines in an annotation track.
+
+**insertions.bed/deletions.bed**   
+The USCS BED tracks of insertions and deletions reported by TopHat.
+
+**prep_reads.info**   
+Provides numbers of reads processed and the minimum/maximum read length in the data set.
+
+**logs**   
+The log provides information on the completion of each step in TopHat.
+
+**unmapped.bam**   
+This one contains unaligned reads, just like accepted_hits.bam, except unaligned... This can provide a lot of useful information.
+
+**align_summary.txt**   
+Provide alignment summary. Important for publication and how well the mapping was.
+
+
+
+
+
+
+
+
 
 
 
