@@ -251,9 +251,14 @@ If we are running multiple samples, we don't need to build the transcriptome ind
 
 ## Options to modify
 
-Tophat is really flexible! It has a lot of options! Depending on your experiment, you may want to change some of the default settings to something that is more efficient in 
+Tophat is really flexible! It has a lot of options! Depending on your experiment, you may want to change some of the default settings to something that is more efficient, works for your specific organism, or 
 
-
+**Useful flags to adjust**
++ **-i/--min-intron-length** The minimum intron length. Default is 70.
++ **-I/--max-intron-length** the maximum intron length. Deault is 500000.
++ -r/--mate-inner-dist Expected (mean) inner distance between mate pairs. Default is 50bp.
++ --mate-std-dev The standard deviation for the distribution on inner distance between mate pairs. Default is 20 bp.
++ -N/--read-mismatches Find read alignments having more than these many mismatches are discarded. Default is 2.
 
 
 
