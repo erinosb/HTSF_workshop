@@ -125,7 +125,7 @@ $ ls                                                      # Look at what you hav
 We are going to align one sample using tophat. It should take about 20 minutes and will be done by the time we are finished with the introductory lecture. To execute this command, follow these directions
 
 ```
-#Navigate to   <yourversion>/01_RNASeqDemo/05_scripts/
+#NAVIGATE TO <yourversion>/01_RNASeqDemo/05_scripts/
 $ pwd                                             # Should show that you are in <yourversion>/01_RNASeqDemo/05_scripts/
 $ bsub -q week -n 4 -R "span[hosts=1]" -o %J_tophat.log "bash script02_tophat_single.sh"  #Start the tophat demo.
 ```
@@ -142,6 +142,8 @@ To run tophat, simply execute...
 > $ **tophat**&emsp;*[options]*&emsp;*\<genome_index_base\>&emsp;\<reads1_1[,...,readsN_1]\>&emsp;[reads1_2,...readsN_2]*
 
 ```
+################ DON'T EXECUTE #########################
+################ EXAMPLE ONLY ##########################
 tophat                      # the literal command
 [options]                   # any optional arguments to customize the way that tophat runs
 <genome_index_base>         # The genome you want to reference, built as a bowtie2 index and written in the form /path/to/rootname
@@ -156,6 +158,9 @@ Tophat has a lot of options. These allow us to customize how tophat runs based o
 Today we will run tophat on our first of ten sequence samples like so...
 
 ```
+################ DON'T EXECUTE #########################
+################ EXAMPLE ONLY ##########################
+
 tophat
   -p 4                                                       # use four threads
   --max-multihits 1                                          # don't report any reads with more than one match to the genome
@@ -173,6 +178,9 @@ ONE OPTION...
 We *could* execute the command within a bsub command...
 
 ```
+################ DON'T EXECUTE #########################
+################ EXAMPLE ONLY ##########################
+
 bsub -q week -n 4 -R "span[hosts=1]" -o ../00_logs/%J_tophat.log "tophat -p 4 --max-multihits 1 -o ../04_results/tophat/Gm10847_opd -G /proj/seq/data/HG19_UCSC/Annotation/Genes/genes.gtf /proj/seq/data/HG19_UCSC/Sequence/Bowtie2Index/genome ../03_processedInput/Gm10847_R1_trim.fastq.gz ../03_processedInput/Gm10847_R2_trim.fastq.gz"
 
 NOTE: -p in the tophat command and -n in the bsub command must be compatible
@@ -184,7 +192,10 @@ It is often easier to package the tophat commands into a shell script for ease o
 In this case, the script will look like...
 
 **script02_tophat_.sh**
-```
+```bash
+################ DON'T EXECUTE #########################
+################ EXAMPLE ONLY ##########################
+
 #!/bin/bash
 
 tophat -p 4 --max-multihits 1 -o ../04_results/tophat/Gm10847_opd -G /proj/seq/data/HG19_UCSC/Annotation/Genes/genes.gtf /proj/seq/data/HG19_UCSC/Sequence/Bowtie2Index/genome ../03_processedInput/Gm10847_R1_trim.fastq.gz ../03_processedInput/Gm10847_R2_trim.fastq.gz
@@ -197,7 +208,9 @@ Execute **script
 Let's look at bash script01_trim.sh...
 
 ```
-$ pico script02_tophat_singlesh
+#NAVIGATE TO <yourversion>/01_RNASeqDemo/05_scripts/.
+#EXECUTE THESE COMMANDS:
+$ pico script02_tophat_single.sh
 ```
 
 
@@ -233,7 +246,9 @@ This one .bam file contains the unaligned reads.
 Our example only aligned one or our ten datasets. To run the other 9, we can make a script that simply lists all the commands to generate the full aligment dataset:
 
 **script_demo_ALL.sh**
-```
+```bash
+################ DON'T EXECUTE #########################
+################ EXAMPLE ONLY ##########################
 mkdir ../04_results/tophat/Gm10847_opd
 tophat -p 4 --max-multihits 1 -o ../04_results/tophat/Gm10847_opd -G /proj/seq/data/HG19_UCSC/Annotation/Genes/genes.gtf /proj/seq/data/HG19_UCSC/Sequence/Bowtie2Index/genome ../03_processedInput/Gm10847_R1_trim.fastq.gz ../03_processedInput/Gm10847_R2_trim.fastq.gz
 ```
