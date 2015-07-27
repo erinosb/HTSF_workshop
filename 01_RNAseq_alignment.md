@@ -25,6 +25,7 @@ bamtools
 To load them, type:
 
 ```
+#EXECUTE THESE
 $ module avail             # List all the modules available.
 
 $ module load tophat       # Load tophat2
@@ -49,13 +50,20 @@ Let's make a file structure.
 Start by creating the directory where you will conduct your analysis. I typically give my project ProjectNumbers.
 
 ```
-$ mkdir 01_RNASeqDemo
-$ cd 01_RNASeqDemo
+#NAVIGATE TO your prefered working directory. Either /netscr/<onyen>/ or /proj/<yourlab>/<yourname>/ We will call this location <yourversion>
+#EXECUTE THESE COMMANDS
+$ pwd                             # Use this to check that you are located where you want to be. It is probably /netscr/<onyen>/
+$ mkdir 01_RNASeqDemo             # Use this to start a directory where we will work on our RNA-seq project today.
+$ cd 01_RNASeqDemo                # Change into that directory
 ```
 
 OK, now we are inside the directory `01_RNASeqDemo`. Now that we are here, initiate the project by starting some sub-directories and a README document.
 
 ```
+#NAVIGATE TO <yourversion>/01_RNASeqDemo/
+$ pwd                             # Use this to check that you are located where you want to be. It is probably /netscr/<onyen>/01_RNASeqDemo/ which we are refering to as <yourversion>/01_RNASeqDemo/
+
+#EXECUTE THESE COMMANDS
 $ mkdir 00_logs
 $ mkdir 01_ref
 $ mkdir 02_raw
@@ -90,7 +98,8 @@ Gm12877 M
 Copy these files to the directory called /raw within your project directory:
 
 ```
-#NAVIGATE TO <yourversion>/01_RNASeqDemo
+#NAVIGATE TO <yourversion>/01_RNASeqDemo.
+#EXECUTE THESE COMMANDS:
 $ pwd                                               # Should show you <yourversion>/01_RNASeqDemo
 $ cd 02_rawInput                                    # Change into the 02_rawInput directory
 $ cp /proj/seq/data/RNAseq-HSL/reads/*.fastq.gz .   # Copy a dataset from the HTSF shared data directory into your 02_rawInput directory.
@@ -103,6 +112,8 @@ $ ls                                                # Look and see what you got!
 I have pre-written a number of scripts for you to run as examples. To obtain these, navigate to `<yourversion>/01_RNASeqDemo/05_scripts/` and copy the following files like so...
 
 ```
+#NAVIGATE TO <yourversion>/01_RNASeqDemo/05_scripts/.
+#EXECUTE THESE COMMANDS:
 $ pwd                                                     # Should show that you are in your version of <yourversion>/01_RNASeqDemo/05_scripts/
 $ cp /netscr/erinosb/HTSF_RNASeq_Demo/05_scripts/*.sh .   # Copy scripts from erinosb location to your local 05_scripts area
 $ ls                                                      # Look at what you have
@@ -116,7 +127,7 @@ We are going to align one sample using tophat. It should take about 20 minutes a
 ```
 #Navigate to   <yourversion>/01_RNASeqDemo/05_scripts/
 $ pwd                                             # Should show that you are in <yourversion>/01_RNASeqDemo/05_scripts/
-$ bsub -q week -n 4 -R "span[hosts=1]" -o %J_tophat.log "bash script01_trim.sh"
+$ bsub -q week -n 4 -R "span[hosts=1]" -o %J_tophat.log "bash script02_tophat_single.sh"  #Start the tophat demo.
 ```
 
 &nbsp;
