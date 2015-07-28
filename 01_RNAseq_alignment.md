@@ -170,6 +170,9 @@ $ pwd                                             # Should show that you are in 
 $ bsub -q week -n 4 -R "span[hosts=1]" -o %J_tophat.log "bash script02_tophat_single.sh"     #Start the tophat demo.
 ```
 
+___________
+## STOP HERE
+________
 &nbsp;
 
 &nbsp;
