@@ -32,6 +32,7 @@ $ module load r
 
 ## Get the .bam files for all the alignments
 
+```
 # NAVIGATE TO <yourversion>/01_RNASeqDemo/04_results
 # EXECUTE THE CODE:
 $ mv tophat/ ../06_test/in_class_session
