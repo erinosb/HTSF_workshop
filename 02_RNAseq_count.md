@@ -2,6 +2,9 @@
 
 Welcome to an introduction of RNA-seq analysis, a part of the High Throughput Sequencing Facility introduction to Deep Sequencing Analysis.
 
+&nbsp;
+
+&nbsp;
 ____
 
 ## Setup
@@ -24,6 +27,12 @@ We will need htseq-counts, and r
 $ module load htseq-counts
 $ module load r
 ```
+
+&nbsp;
+
+&nbsp;
+____
+
 
 #### HT-seq counts
 
@@ -61,6 +70,11 @@ To see what happened
 + Try running script07\_merge\_htseqcounts.sh
 + Inspect the merged output file \<yourversion\>/04\_results/htseqcounts/merge\_counts.txt
 
+
+&nbsp;
+
+&nbsp;
+____
 
 ## DESeq2 Demo
 
