@@ -280,6 +280,8 @@ When tophat aligns to a transcriptome first, it does two things:
 
 If we are running multiple samples, we don't need to build the transcriptome index every time. Go to the script **04_tophat_alternatives.sh** to see how you can write a script that uses this more efficient style.
 
+**H
+
 ## Options to modify
 
 Tophat is really flexible! It has a lot of options! Depending on your experiment, you may want to change some of the default settings to something that is more efficient, works for your specific organism, or 
