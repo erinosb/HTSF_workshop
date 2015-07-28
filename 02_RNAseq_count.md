@@ -30,6 +30,18 @@ $ module load htseq-counts
 $ module load r
 ```
 
+## Get the .bam files for all the alignments
+
+# NAVIGATE TO <yourversion>/01_RNASeqDemo/04_results
+# EXECUTE THE CODE:
+$ mv tophat/ ../06_test/in_class_session
+$ 
+$ pwd                   # Check that you are in <yourversion>/01_RNASeqDemo/04_results
+$ cp -r /netscr/erinosb/HTSF_RNASeq_Demo/01_RNASeqDemo/04_results/tophat/ .
+```
+
+
+
 &nbsp;
 
 &nbsp;
