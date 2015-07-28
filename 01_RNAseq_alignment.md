@@ -61,7 +61,7 @@ OK, now we are inside the directory `01_RNASeqDemo`. Now that we are here, initi
 
 ```
 #NAVIGATE TO <yourversion>/01_RNASeqDemo/
-$ pwd                             # Use this to check that you are located where you want to be. It is probably /netscr/<onyen>/01_RNASeqDemo/ which we are refering to as <yourversion>/01_RNASeqDemo/
+$ pwd                             # Use this to check that you are located where you want to be. It is probably /netscr/<onyen>/01_RNASeqDemo/ 
 
 #EXECUTE THESE COMMANDS
 $ mkdir 00_logs 01_ref 02_raw 03_processedInput 04_resultsInput 05_scripts 06_test
@@ -101,6 +101,16 @@ $ cp /proj/seq/data/RNAseq-HSL/reads/*.fastq.gz .   # Copy a dataset from the HT
 $ ls                                                # Look and see what you got!
 ```
 
+We don't have time to do the trimming of these files so I've trimmed the files for you. Download the trimmed files.
+
+```
+#NAVIGATE TO <yourversion>/01_RNASeqDemo/03_processedInput
+#EXECUTE THESE COMMANDS:
+$ pwd                                               # Should show you <yourversion>/01_RNASeqDemo/03_processedInput
+$ cp /netscr/erinosb/HTSF_RNASeq_Demo/01_RNASeqDemo/03_processedInput/*.fastq.gz .   # Copy a dataset from the HTSF shared data directory into your 02_rawInput directory.
+$ ls 
+```
+
 
 #### Get the scripts
 
@@ -110,7 +120,7 @@ I have pre-written a number of scripts for you to run as examples. To obtain the
 #NAVIGATE TO <yourversion>/01_RNASeqDemo/05_scripts/
 #EXECUTE THESE COMMANDS:
 $ pwd                                     # Should show that you are in <yourversion>/01_RNASeqDemo/05_scripts/
-$ cp /netscr/erinosb/HTSFscripts/*.sh .   # Copy scripts from erinosb location to your local 05_scripts area
+$ cp /netscr/erinosb/HTSF_RNASeq_Demo/01_RNASeqDemo/05_scripts/*.sh .   # Copy scripts from erinosb location to your local 05_scripts area
 $ ls                                      # Look at what you have
 ```
 
@@ -128,6 +138,7 @@ $ mkdir ../04_results/tophat/Gm10847_opd          # Save an output directory to 
 
 ### HERE YOU GO!!! YOU"RE GOING TO START TOPHAT ###
 #EXECUTE THIS COMMAND:
+$ pwd                                             # Should show that you are in <yourversion>/01_RNASeqDemo/05_scripts/
 $ bsub -q week -n 4 -R "span[hosts=1]" -o %J_tophat.log "bash script02_tophat_single.sh"     #Start the tophat demo.
 ```
 
