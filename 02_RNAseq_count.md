@@ -83,14 +83,18 @@ ____
 Ensure you have done the following setup:
 ## Setup
 
-Log into killdevil using your X11 or Xquartz options.    
-MAC Users
-1. Open XQuartz
-2. Login using `ssh -Y <youronyen>@killdevil.unc.edu
+MAC Users   
 
-PC Users
++ Open XQuartz
++ Login using `ssh -Y <youronyen>@killdevil.unc.edu
+
+PC Users    
+
++ Tunnel in with X11
 
 #### Load modules
+
+We will need htseq-counts, and r
 
 ```
 #EXECUTE THESE COMMANDS
@@ -107,9 +111,7 @@ Make a file structure
 #EXECUTE THESE COMMANDS:    
 $ pwd                                   # Check you are in <yourversion> which is probably /netscr/<youronyen/
 $ mkdir 02_DESeqDemo
-$ cp /netscr/erinosb/HTSF_RNASeq_Demo/02_DESeq2Demo/counts_bbmap.txt .
-$ cp /netscr/erinosb/HTSF_RNASeq_Demo/02_DESeq2Demo/sampleInfo.txt .
-$ cp /netscr/erinosb/HTSF_RNASeq_Demo/02_DESeq2Demo/deseq2_demo_EON_150725.R
+$ cp -r /netscr/erinosb/HTSF_RNASeq_Demo/02_DESeq2Demo .
 $ ls
 ```
 
@@ -123,6 +125,7 @@ Copy and paste each line of code from `deseq2_demo_EON_150725.R` into an interac
 
 ```
 $ bsub --Ip R
+#Copy and paste commands into the interactive prompt
 ```
 
 Alternatively, you can execute R on the command line like so...
