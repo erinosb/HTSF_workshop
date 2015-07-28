@@ -296,8 +296,12 @@ Provides numbers of reads processed and the minimum/maximum read length in the d
 **unmapped.bam**   
 This one .bam file contains the unaligned reads.
 
+&nbsp;
 
-## All samples
+&nbsp;
+____
+
+## Running all samples
 
 Our example only aligned one of or our ten datasets. To run all 10, we can make a script that simply lists all the commands to generate the full aligment dataset:
 
@@ -328,7 +332,12 @@ When tophat aligns to a transcriptome first, it does two things:
 
 If we are running multiple samples, we don't need to build the transcriptome index every time. Go to the script **04_tophat_alternatives.sh** to see how you can write a script that uses this more efficient style.
 
-**Homework**
+&nbsp;
+
+&nbsp;
+____
+
+## **Homework**
 
 + Read through the pseudocode (English) parts of the script **script04_tophat_alternates.sh**. Try to follow the logic of what is happening.
 
@@ -345,6 +354,10 @@ $ bsub -q week -n 4 -R "span[hosts=1]" -o ../00_logs/%J_tophat_alt.log "bash scr
   + How long did it take to run?
 + Inspect the output tophat in `<yourversion>/01_RNASeqDemo/04_results/tophat/
 
+&nbsp;
+
+&nbsp;
+____
 
 ## Options to modify
 
