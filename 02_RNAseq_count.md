@@ -26,7 +26,7 @@ We will need htseq-counts, and r
 
 ```
 #EXECUTE THESE COMMANDS
-$ module load htseq-counts
+$ module load htseq-count
 $ module load r
 ```
 
