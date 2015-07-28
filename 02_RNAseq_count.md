@@ -34,7 +34,7 @@ $ module load r
 ____
 
 
-#### HT-seq counts
+## HT-seq counts
 
 Will read as input an accepted_hits_bam file from tophat.
 
