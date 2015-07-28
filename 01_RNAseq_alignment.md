@@ -84,7 +84,7 @@ $ pwd                             # Use this to check that you are located where
 
 #EXECUTE THESE COMMANDS
 $ mkdir 00_logs 01_ref 02_raw 03_processedInput 04_resultsInput 05_scripts 06_test
-$ touch 01_RNASeqDemo_README.txt
+$ touch RNASeqDemo_README.txt
 $ ls
 ```
 
