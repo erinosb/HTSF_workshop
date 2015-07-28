@@ -81,7 +81,41 @@ PC Users
 $ module load r
 ```
 
-#### Get the HTSeq2 files...
+#### Get the DESeq2 files...
+
+```
+Make a file structure
+
+#Navigate to <yourversion>
+
+#EXECUTE THESE COMMANDS:    
+$ pwd                                   # Check you are in <yourversion> which is probably /netscr/<youronyen/
+$ mkdir 02_DESeqDemo
+$ cp /netscr/erinosb/HTSF_RNASeq_Demo/02_DESeq2Demo/counts_bbmap.txt .
+$ cp /netscr/erinosb/HTSF_RNASeq_Demo/02_DESeq2Demo/sampleInfo.txt .
+$ cp /netscr/erinosb/HTSF_RNASeq_Demo/02_DESeq2Demo/deseq2_demo_EON_150725.R
+$ ls
+```
+
+You have just copied over a downsampled set of the Male versus Female dataset, a small table on the expeirment's design, and an .R code containing a demonstration DESeq run.
+
+** Watch demo of R**
+
+#### Play around with interactive R.
+
+Copy and paste each line of code from `deseq2_demo_EON_150725.R` into an interactive browser session using 
+
+```
+$ bsub --Ip R
+```
+
+Alternatively, you can execute R on the command line like so...
+
+```
+$ bsub -q week -n 1 -o %J_deseq.log "R --vanilla < deseq2_demo_EON_150725.R"
+```
+
+
 
 
 
