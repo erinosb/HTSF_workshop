@@ -199,9 +199,11 @@ tophat -p 4 --max-multihits 1 -o ../04_results/tophat/Gm10847_opd -G /proj/seq/d
 
 To execute the script, you already typed the following...
 
-################ DON'T EXECUTE #########################   
-################ EXAMPLE ONLY ##########################   
-> bsub -q week -n 4 -R "span[hosts=1]" -o %J_tophat.log "bash script02_tophat_single.sh"
+```
+################ DON'T EXECUTE #########################    
+################ EXAMPLE ONLY ##########################    
+$ bsub -q week -n 4 -R "span[hosts=1]" -o %J_tophat.log "bash script02_tophat_single.sh"
+```
 
 Let's take a closer look at bash script02\_tophat\_single.sh
 
@@ -251,7 +253,7 @@ This one .bam file contains the unaligned reads.
 
 ## All samples
 
-Our example only aligned one of or our ten datasets. To run the other 9, we can make a script that simply lists all the commands to generate the full aligment dataset:
+Our example only aligned one of or our ten datasets. To run all 10, we can make a script that simply lists all the commands to generate the full aligment dataset:
 
 **script_demo_ALL.sh**
 ```bash
@@ -280,7 +282,23 @@ When tophat aligns to a transcriptome first, it does two things:
 
 If we are running multiple samples, we don't need to build the transcriptome index every time. Go to the script **04_tophat_alternatives.sh** to see how you can write a script that uses this more efficient style.
 
-**H
+**Homework**
+
++ Read through the pseudocode (English) parts of the script **script04_tophat_alternates.sh**. Try to follow the logic of what is happening.
+
++ Run the code:
+
+```
+#NAVIGATE TO <yourversion>/01_RNASeqDemo/05_scripts/
+#EXECUTE THESE COMMANDS:
+$ pwd
+$ bsub -q week -n 4 -R "span[hosts=1]" -o ../00_logs/%J_tophat_alt.log "bash script04_tophat_alternates.sh"
+```
+
++ Inspect the log file. Where did the log file go? It should be in `<yourversion>/01_RNASeqDemo/00_logs/`
+  + How long did it take to run?
++ Inspect the output tophat in `<yourversion>/01_RNASeqDemo/04_results/tophat/
+
 
 ## Options to modify
 
@@ -293,7 +311,7 @@ Tophat is really flexible! It has a lot of options! Depending on your experiment
 + **-r/--mate-inner-dist** Expected (mean) inner distance between mate pairs for paired end reads. Default is 50bp.
 + **-N/--read-mismatches** Find read alignments having more than these many mismatches are discarded. Default is 2.
 + **--g/--max-multihits <int>** Sets how many possible locations in the genome a given read can match to and still be retained as a successful alignment.
-+ **bowtie2 reference files** Change this for each organism you use. There are many organism's .bt2 files already preloaded on the cluster for you at `/proj/seq/data/`
++ **bowtie2 reference files** Change this for each organism you use. There are many organism's .bt2 files already preloaded on the cluster for you at `/proj/seq/data/`. If you need to build your own bt2 files, instructions are here:
 + **.fastq.gz** Of course, this will change for each sample!
 
 
