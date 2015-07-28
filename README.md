@@ -4,4 +4,4 @@ These are lecture materials in support of UNC's Next Generation Sequencing Works
 
 Materials prepared by Erin Osborne Nishimura
 
-
+Licensed under Creative Commons
