@@ -2,6 +2,24 @@
 
 Welcome to an introduction of RNA-seq analysis, a part of the High Throughput Sequencing Facility introduction to Deep Sequencing Analysis.
 
+&nbsp;
+
+&nbsp;
+
+____
+
+## Before we get started...
+
++ \* -- wild card
++ # -- comment out
++ Relative paths versus absolute paths
++ On command line notation
+
+
+&nbsp;
+
+&nbsp;
+
 ____
 
 ## Setup
@@ -125,7 +143,12 @@ $ ls                                      # Look at what you have
 ```
 
 
-#### Align your first sample using tophat
+&nbsp;
+
+&nbsp;
+
+____
+## Align your first sample using tophat
 
 We are going to align one sample using tophat. It should take about 20 minutes and will be done by the time we are finished with the introductory lecture. To execute this command, follow these directions
 
@@ -228,6 +251,13 @@ Let's take a closer look at bash script02\_tophat\_single.sh
 $ more script02_tophat_single.sh
 ```
 
+&nbsp;
+
+&nbsp;
+
+____
+## Tophat output
+
 #### Output files -- you made a log file. 
 
 Let's see if it worked. You wrote an output file as part of your busb command execution. Navigate to `<yourversion>/01_RNASeqDemo/05_scripts/`. 
@@ -265,6 +295,7 @@ Provides numbers of reads processed and the minimum/maximum read length in the d
 
 **unmapped.bam**   
 This one .bam file contains the unaligned reads.
+
 
 ## All samples
 
