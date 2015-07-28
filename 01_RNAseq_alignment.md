@@ -113,7 +113,8 @@ Gm12877 M
 Copy these files to the directory called `02_rawInput` within your project directory:
 
 ```
-#NAVIGATE TO <yourversion>/01_RNASeqDemo/02_rawInput
+#NAVIGATE TO <yourversion>/01_RNASeqDemo/02_rawInput:
+$ cd 02_rawInput
 #EXECUTE THESE COMMANDS:
 $ pwd                                               # Should show you <yourversion>/01_RNASeqDemo/02_rawInput
 $ cp /proj/seq/data/RNAseq-HSL/reads/*.fastq.gz .   # Copy a dataset from the HTSF shared data directory into your 02_rawInput directory.
