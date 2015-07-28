@@ -11,12 +11,12 @@ ____
 
 #### Log into killdevil using your X11 or Xquartz options.
 
-MAC Users
-
+MAC Users   
 1. Open XQuartz
 2. Login using `ssh -Y <youronyen>@killdevil.unc.edu
 
-PC Users
+PC Users   
++ Tunnel in with X11
 
 #### Load modules
 
