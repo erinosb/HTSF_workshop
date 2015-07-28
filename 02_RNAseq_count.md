@@ -54,12 +54,34 @@ $ bsub -q week -n 1 -o ../00_logs/%J_htseqcount.log "bash script06_htseq-count.s
 
 To see what happened
 + read the log file
-+ Look at the output of htseq-counts in `/04\_results/htseqcounts/`
++ Look at the output of htseq-counts in `/04_results/htseqcounts/`
 
 **Homework** 
 + Try running script06_htseq-count.sh when you have all the tophat alignments completed.
 + Try running script07\_merge\_htseqcounts.sh
 + Inspect the merged output file \<yourversion\>/04\_results/htseqcounts/merge\_counts.txt
+
+
+## DESeq2 Demo
+
+Ensure you have done the following setup:
+## Setup
+
+Log into killdevil using your X11 or Xquartz options.    
+MAC Users
+1. Open XQuartz
+2. Login using `ssh -Y <youronyen>@killdevil.unc.edu
+
+PC Users
+
+#### Load modules
+
+```
+#EXECUTE THESE COMMANDS
+$ module load r
+```
+
+#### Get the HTSeq2 files...
 
 
 
