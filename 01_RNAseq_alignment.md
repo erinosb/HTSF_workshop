@@ -14,6 +14,8 @@ ____
 + # -- comment out
 + Relative paths versus absolute paths
 + On command line notation
++ On /proj/data/seq
++ On annotation files
 
 
 &nbsp;
@@ -305,17 +307,34 @@ ____
 
 Our example only aligned one of or our ten datasets. To run all 10, we can make a script that simply lists all the commands to generate the full aligment dataset:
 
-**script_demo_ALL.sh**
+**script03A_tophat_unlooped.sh**
 ```bash
 ################ DON'T EXECUTE #########################
 ################ EXAMPLE ONLY ##########################
+mkdir ../04_results/tophat
 mkdir ../04_results/tophat/Gm10847_opd
 tophat -p 4 --max-multihits 1 -o ../04_results/tophat/Gm10847_opd -G /proj/seq/data/HG19_UCSC/Annotation/Genes/genes.gtf /proj/seq/data/HG19_UCSC/Sequence/Bowtie2Index/genome ../03_processedInput/Gm10847_R1_trim.fastq.gz ../03_processedInput/Gm10847_R2_trim.fastq.gz
+
+mkdir ../04_results/tophat/Gm10851_opd
+tophat -p 4 --max-multihits 1 -o ../04_results/tophat/Gm10851_opd -G /proj/seq/data/HG19_UCSC/Annotation/Genes/genes.gtf /proj/seq/data/HG19_UCSC/Sequence/Bowtie2Index/genome ../03_processedInput/Gm10851_R1_trim.fastq.gz ../03_processedInput/Gm10851_R2_trim.fastq.gz
+
+mkdir ../04_results/tophat/Gm12752_opd
+tophat -p 4 --max-multihits 1 -o ../04_results/tophat/Gm12752_opd -G /proj/seq/data/HG19_UCSC/Annotation/Genes/genes.gtf /proj/seq/data/HG19_UCSC/Sequence/Bowtie2Index/genome ../03_processedInput/Gm12752_R1_trim.fastq.gz ../03_processedInput/Gm12752_R2_trim.fastq.gz
+
+mkdir ../04_results/tophat/Gm12753_opd
+tophat -p 4 --max-multihits 1 -o ../04_results/tophat/Gm12753_opd -G /proj/seq/data/HG19_UCSC/Annotation/Genes/genes.gtf /proj/seq/data/HG19_UCSC/Sequence/Bowtie2Index/genome ../03_processedInput/Gm12753_R1_trim.fastq.gz ../03_processedInput/Gm12753_R2_trim.fastq.gz
+
+mkdir ../04_results/tophat/Gm12801_opd
+tophat -p 4 --max-multihits 1 -o ../04_results/tophat/Gm12801_opd -G /proj/seq/data/HG19_UCSC/Annotation/Genes/genes.gtf /proj/seq/data/HG19_UCSC/Sequence/Bowtie2Index/genome ../03_processedInput/Gm12801_R1_trim.fastq.gz ../03_processedInput/Gm12801_R2_trim.fastq.gz
+#and on and on and on and on....
+
 ```
 
 However, I find it easier, and less typing, to write a short shell script that loops through every sample automatically.
 
-Look at the script **script03_tophat_looped.sh** as an example. This script executes in about 5 hours when run with the bsub command listed under USAGE.
+Look at the script **script03B_tophat_looped.sh** as an example. This script executes in about 5 hours when run with the bsub command listed under USAGE.
+
+This script is written in bash so it is a bash script. If you want to learn more about bash scripts and writing them, I recommend [Ryan's Tutorial](http://ryanstutorials.net/bash-scripting-tutorial/). Another alternative is to learn pretty much any high-level programming language (perl, python, ruby). Once you learn one, the others are easier! They will ALL make these types of looped analysis "pipelines".
 
 
 &nbsp;
@@ -330,7 +349,7 @@ When tophat aligns to a transcriptome first, it does two things:
 2. builds a transcriptome index off of the .gtf/.gff file
 3. aligns the reads to the transcriptome index and genome index given.
 
-If we are running multiple samples, we don't need to build the transcriptome index every time. Go to the script **04_tophat_alternatives.sh** to see how you can write a script that uses this more efficient style.
+If we are running multiple samples, we don't need to build the transcriptome index every time. Go to the script **script04_tophat_alternates.sh** to see how you can write a script that uses this more efficient style.
 
 &nbsp;
 
@@ -361,7 +380,7 @@ ____
 
 ## Options to modify
 
-Tophat is really flexible! It has a lot of options! Depending on your experiment, you may want to change some of the default settings to something that is more efficient, works for your specific organism, or 
+Tophat is really flexible! It has a lot of options! Depending on your experiment, you may want to change some of the default settings to something that is more efficient, works for your specific organism, or annotation version.
 
 **Useful flags to adjust**
 + **-o/--output-dir <string>** The output directory. Change this for every sample.
