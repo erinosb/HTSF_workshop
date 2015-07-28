@@ -123,7 +123,11 @@ We are going to align one sample using tophat. It should take about 20 minutes a
 #NAVIGATE TO <yourversion>/01_RNASeqDemo/05_scripts/
 #EXECUTE THESE COMMANDS:
 $ pwd                                             # Should show that you are in <yourversion>/01_RNASeqDemo/05_scripts/
-$ mkdir ../04_results/tophat/Gm10847_opd          # Save an output directory to capture your output
+$ mkdir ../04_results/tophat                      # Make an output directory to capture all tophat output
+$ mkdir ../04_results/tophat/Gm10847_opd          # Save an output directory to capture your output for the first sample
+
+### HERE YOU GO!!! YOU"RE GOING TO START TOPHAT ###
+#EXECUTE THIS COMMAND:
 $ bsub -q week -n 4 -R "span[hosts=1]" -o %J_tophat.log "bash script02_tophat_single.sh"     #Start the tophat demo.
 ```
 
