@@ -37,7 +37,6 @@ One of the first things we'll have to do is load up all our modules. On Kure and
 The applications we'll load up for today will be:  
 fastx_toolkit   
 tophat2  
-samtools   
 bedtools   
 bamtools  
 pico
