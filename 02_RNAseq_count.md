@@ -9,6 +9,7 @@ ____
 #### Log into killdevil using your X11 or Xquartz options.
 
 MAC Users
+
 1. Open XQuartz
 2. Login using `ssh -Y <youronyen>@killdevil.unc.edu
 
@@ -16,7 +17,28 @@ PC Users
 
 #### Load modules
 
-We will need htseq-counts, r, 
+We will need htseq-counts, and r
 
-htseq-count --format=bam --order=pos --stranded=no --minaqual=20 --type=exon --mode=union ../04_results/tophat/${file}_opd/accepted_hits.bam /proj/seq/data/HG19_UCSC/Annotation/Genes/genes.gtf 1> ../04_results/htseqcounts/${file}_counts.txt
+```
+#EXECUTE THESE COMMANDS
+$ module load htseq-counts
+$ module load r
+```
+
+#### HT-seq counts
+
+Will read as input an accepted_hits_bam file from tophat.
+
+```
+htseq-count \                                           # Literally call htseq-count
+    --format=bam \                                      # input format of the incoming file is bam
+    --order=pos \                                       # .bam file has been ordered
+    --stranded=no \                                     # RNA-seq is NOT stranded
+    --minaqual=20 \                                     # Throw out any alignments with minquality scores less than 20
+    --type=exon \                                       # Use concatenated exons as "genes"
+    --mode=union                                        # Run in "union" mode   
+    ../04_results/tophat/${file}_opd/accepted_hits.bam \      # Here is the place to put the output
+    /proj/seq/data/HG19_UCSC/Annotation/Genes/genes.gtf \     # Here is the .gtf annotation file
+    1> ../04_results/htseqcounts/${file}_counts.txt           # Here is the input, a .bam file from tophat
+```
   
