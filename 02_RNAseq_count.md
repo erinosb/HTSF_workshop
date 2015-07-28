@@ -42,3 +42,26 @@ htseq-count \                                           # Literally call htseq-c
     1> ../04_results/htseqcounts/${file}_counts.txt           # Here is the input, a .bam file from tophat
 ```
   
+I have already written the code for you in a script called **script06_htseq-count.sh***. This script loops through every sample and counts all reads associated with the gene models in the human genome annotation file (a .gtf document).
+
+
+```
+# NAVIGATE TO <yourversion>/01_RNASeqDemo/05_scripts
+# EXECUTE THE CODE:
+$ pwd
+$ bsub -q week -n 1 -o ../00_logs/%J_htseqcount.log "bash script06_htseq-count.sh"  
+```
+
+To see what happened
++ read the log file
++ Look at the output of htseq-counts in `/04\_results/htseqcounts/`
+
+**Homework** 
++ Try running script06_htseq-count.sh when you have all the tophat alignments completed.
++ Try running script07\_merge\_htseqcounts.sh
++ Inspect the merged output file \<yourversion\>/04\_results/htseqcounts/merge\_counts.txt
+
+
+
+
+
