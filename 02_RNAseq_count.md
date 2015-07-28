@@ -1,4 +1,4 @@
-# RNA-seq Count
+# RNA-seq Count & Differential Expression
 
 Welcome to an introduction of RNA-seq analysis, a part of the High Throughput Sequencing Facility introduction to Deep Sequencing Analysis.
 
@@ -34,7 +34,7 @@ $ module load r
 ____
 
 
-## HT-seq counts
+## HTseq-count Demo
 
 Will read as input an accepted_hits_bam file from tophat.
 
