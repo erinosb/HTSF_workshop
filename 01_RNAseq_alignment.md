@@ -162,6 +162,7 @@ We are going to align one sample using tophat. It should take about 20 minutes a
 $ pwd                                             # Should show that you are in <yourversion>/01_RNASeqDemo/05_scripts/
 $ mkdir ../04_results/tophat                      # Make an output directory to capture all tophat output
 $ mkdir ../04_results/tophat/Gm10847_opd          # Save an output directory to capture your output for the first sample
+$ ls ../04_results/tophat                         # Make sure your directory making worked
 
 ### HERE YOU GO!!! YOU"RE GOING TO START TOPHAT ###
 #EXECUTE THIS COMMAND:
