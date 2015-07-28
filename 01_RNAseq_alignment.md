@@ -107,11 +107,11 @@ $ ls                                                # Look and see what you got!
 I have pre-written a number of scripts for you to run as examples. To obtain these, navigate to `<yourversion>/01_RNASeqDemo/05_scripts/` and copy the following files like so...
 
 ```
-#NAVIGATE TO <yourversion>/01_RNASeqDemo/05_scripts/.
+#NAVIGATE TO <yourversion>/01_RNASeqDemo/05_scripts/
 #EXECUTE THESE COMMANDS:
-$ pwd                                                     # Should show that you are in your version of <yourversion>/01_RNASeqDemo/05_scripts/
-$ cp /netscr/erinosb/HTSF_RNASeq_Demo/05_scripts/*.sh .   # Copy scripts from erinosb location to your local 05_scripts area
-$ ls                                                      # Look at what you have
+$ pwd                                     # Should show that you are in <yourversion>/01_RNASeqDemo/05_scripts/
+$ cp /netscr/erinosb/HTSFscripts/*.sh .   # Copy scripts from erinosb location to your local 05_scripts area
+$ ls                                      # Look at what you have
 ```
 
 
@@ -121,8 +121,10 @@ We are going to align one sample using tophat. It should take about 20 minutes a
 
 ```
 #NAVIGATE TO <yourversion>/01_RNASeqDemo/05_scripts/
+#EXECUTE THESE COMMANDS:
 $ pwd                                             # Should show that you are in <yourversion>/01_RNASeqDemo/05_scripts/
-$ bsub -q week -n 4 -R "span[hosts=1]" -o %J_tophat.log "bash script02_tophat_single.sh"  #Start the tophat demo.
+$ mkdir ../04_results/tophat/Gm10847_opd          # Save an output directory to capture your output
+$ bsub -q week -n 4 -R "span[hosts=1]" -o %J_tophat.log "bash script02_tophat_single.sh"     #Start the tophat demo.
 ```
 
 &nbsp;
@@ -162,15 +164,15 @@ tophat
   -o ../04_results/tophat/Gm10847_opd                        # output directory
   -G /proj/seq/data/HG19_UCSC/Annotation/Genes/genes.gtf     # Use a transcriptome first
   /proj/seq/data/HG19_UCSC/Sequence/Bowtie2Index/genome      # This is the reference genome index (Bowtie2)
-  ../03_processedInput/Gm10847_R1_trim.fastq.gz              # Input .fastq reads to align... paired-end R1
-  ../03_processedInput/Gm10847_R2_trim.fastq.gz              # Input .fastq reads to align... paired end R2
+  ../03_processedInput/Gm10847_R1_trim.fastq.gz              # This is the input .fastq file to be aligned... paired-end R1
+  ../03_processedInput/Gm10847_R2_trim.fastq.gz              # This is the input .fastq file to be aligned... paired end R2
 ```
 
 To execute this command, we will use the Load Sharing Facility (LSF) using bsub commands. There are a few main ways to do this.
 
 ONE OPTION... 
 
-We *could* execute the command within a bsub command...
+We *could* execute the command within a bsub command like so:
 
 ```
 ################ DON'T EXECUTE #########################
@@ -183,8 +185,7 @@ NOTE: -p in the tophat command and -n in the bsub command must be compatible
 
 Wow! This is getting really cluttered fast!  
 
-It is often easier to package the tophat commands into a shell script for ease of execution.   
-In this case, the script will look like...
+It is often easier to package the tophat commands into a shell script for ease of execution. Shell scripts are files containing a list of commands you want to be executed. In this case, our very basic shell script will read as below.
 
 **script02_tophat_single.sh**
 ```bash
@@ -196,27 +197,39 @@ In this case, the script will look like...
 tophat -p 4 --max-multihits 1 -o ../04_results/tophat/Gm10847_opd -G /proj/seq/data/HG19_UCSC/Annotation/Genes/genes.gtf /proj/seq/data/HG19_UCSC/Sequence/Bowtie2Index/genome ../03_processedInput/Gm10847_R1_trim.fastq.gz ../03_processedInput/Gm10847_R2_trim.fastq.gz
 ```
 
-Execute **script
+To execute the script, you already typed the following...
 
+################ DON'T EXECUTE #########################   
+################ EXAMPLE ONLY ##########################   
 > bsub -q week -n 4 -R "span[hosts=1]" -o %J_tophat.log "bash script02_tophat_single.sh"
 
-Let's look at bash script02_tophat_single.sh...
+Let's take a closer look at bash script02\_tophat\_single.sh
 
 ```
 #NAVIGATE TO <yourversion>/01_RNASeqDemo/05_scripts/.
 #EXECUTE THESE COMMANDS:
-$ pico script02_tophat_single.sh
+$ more script02_tophat_single.sh
 ```
 
+#### Output files -- you made a log file. 
 
-#### Tophat Output Files
+Let's see if it worked. You wrote an output file as part of your busb command execution. Navigate to `<yourversion>/01_RNASeqDemo/05_scripts/`. 
 
-Tophat will produce 8 output files. Since we specified to put our output files in `<yourlocation>/01_RNASeqDemo/04_results/tophat`. Go to that location and explore the output. 
+Use `ls` to find your log file. 
+
+Read the output.  
+
+#### Tophat Output Files  
+
+Now navigate to the location where tophat dumped all its results.
+
+Since we specified to put our output files in `<yourlocation>/01_RNASeqDemo/04_results/tophat`. Go to that location and explore the output. Tophat will produce 8 output files/directories. 
 
 > Navigate to \<yourlocation\>/01_RNASeqDemo/04_results/tophat
 
 **accepted_hits.bam**   
 This is the main alignment output file! This is a list of read alignments in BAM format (bam is the binary version).
+If you want to convert the .bam file to something you can browse, use `samtools view -h -o accepted_hits.sam accepted_hits.bam`
 
 **align_summary.txt**   
 Provide alignment summary. 
@@ -238,7 +251,7 @@ This one .bam file contains the unaligned reads.
 
 ## All samples
 
-Our example only aligned one or our ten datasets. To run the other 9, we can make a script that simply lists all the commands to generate the full aligment dataset:
+Our example only aligned one of or our ten datasets. To run the other 9, we can make a script that simply lists all the commands to generate the full aligment dataset:
 
 **script_demo_ALL.sh**
 ```bash
@@ -250,11 +263,8 @@ tophat -p 4 --max-multihits 1 -o ../04_results/tophat/Gm10847_opd -G /proj/seq/d
 
 However, I find it easier, and less typing, to write a short shell script that loops through every sample automatically.
 
-Look at the script **script03_tophat_looped.sh** as an example. This script executes in about 5 hours when run with 
+Look at the script **script03_tophat_looped.sh** as an example. This script executes in about 5 hours when run with the bsub command listed under USAGE.
 
-```
-bash command
-```
 
 &nbsp;
 
