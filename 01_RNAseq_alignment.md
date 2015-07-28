@@ -113,7 +113,7 @@ Gm12877 M
 Copy these files to the directory called `02_rawInput` within your project directory:
 
 ```
-#NAVIGATE TO <yourversion>/01_RNASeqDemo/02_rawInput:
+#NAVIGATE TO <yourversion>/01_RNASeqDemo/02_rawInput
 $ cd 02_rawInput
 #EXECUTE THESE COMMANDS:
 $ pwd                                               # Should show you <yourversion>/01_RNASeqDemo/02_rawInput
@@ -125,6 +125,7 @@ We don't have time to do the trimming of these files so I've trimmed the files f
 
 ```
 #NAVIGATE TO <yourversion>/01_RNASeqDemo/03_processedInput
+$ cd ../03_processedInput
 #EXECUTE THESE COMMANDS:
 $ pwd                                               # Should show you <yourversion>/01_RNASeqDemo/03_processedInput
 $ cp /netscr/erinosb/HTSF_RNASeq_Demo/01_RNASeqDemo/03_processedInput/*.fastq.gz .   # Copy a dataset from the HTSF shared data directory into your 02_rawInput directory.
@@ -138,6 +139,7 @@ I have pre-written a number of scripts for you to run as examples. To obtain the
 
 ```
 #NAVIGATE TO <yourversion>/01_RNASeqDemo/05_scripts/
+$ cd ../05_scripts
 #EXECUTE THESE COMMANDS:
 $ pwd                                     # Should show that you are in <yourversion>/01_RNASeqDemo/05_scripts/
 $ cp /netscr/erinosb/HTSF_RNASeq_Demo/01_RNASeqDemo/05_scripts/*.sh .   # Copy scripts from erinosb location to your local 05_scripts area
