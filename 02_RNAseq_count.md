@@ -213,25 +213,43 @@ You can also load Rstudio locally.
 
 ## Learning More computational biology and bioinformatics at UNC and beyond:
 
-[Classes and workshops at UNC, MOOCS](http://www.med.unc.edu/oge/student-resources/quantitative-skills-resources)
+**AT UNC**
 
-[Health Science Library workshops](http://guides.lib.unc.edu/c.php?g=8359&p=43018)
+[Classes and workshops at UNC, MOOCS](http://www.med.unc.edu/oge/student-resources/quantitative-skills-resources).   
+Specific classes in different departments.   
 
-[ITS workshop series]()
+[Health Science Library workshops](http://guides.lib.unc.edu/c.php?g=8359&p=43018)   
+Hemant's courses... highly recommend! There are also online resources (pptx) and youtube videos.   
 
-[How to learn to code - 10 week summer workshop at UNC](http://howtolearntocode.web.unc.edu/)
+[ITS workshop series](http://reg.abcsignup.com/view/view_month.aspx?as=52&wp=887&aid=UNC-ITS)   
+Nothing is listed now, but a list will pop up when the fall semester starts. I particularly liked intermediate linux course! They have workshops on python (intro and intermediate), linux (intro and intermediate), scipy (intermerdiate), killdevil (intro).   
 
-
-
-
-
-
-
-
+[How to learn to code - 10 week summer workshop at UNC](http://howtolearntocode.web.unc.edu/)   
+A new experience. 10 weeks of lectures on themes in bioinformatics and computational biology aimed at bench biologists. 8 weeks of hands on coding in a language of your choice (python, R, MATLAB, perl, bash)   
 
 
+**AROUND**   
+[Software Carpentry](http://software-carpentry.org/workshops/)   
+A travelling workshop. Comes to the triangle every few so often.   
 
+**MOOCS**
 
+COURSERA COURSES   
+[R programming COURSERA](https://www.coursera.org/course/rprog)   
+This is part of the [Data Science Specialization](https://www.coursera.org/specializations/jhudatascience/1). I like this whole series. It's *FREE* unless you want certification.  
+
+[Genome Science](https://www.coursera.org/specialization/genomics/41?utm_medium=catalog)   
+I haven't taken this, but it looks pretty interesting.      
+
+EDX COURSES   
+[Case studies in RNA-seq](https://www.edx.org/course/case-study-rna-seq-data-analysis-harvardx-ph525-5x)  
+
+[Case studies in ChIP-seq](https://www.edx.org/course/case-study-chip-seq-data-analysis-harvardx-ph525-7x) 
+
+I don't know anyone who has done these. It they are self-paced classes. 
+
+OTHER MOOCS
+There are a ton of MOOCS out there. Find some friends and get going!
 
 
 
