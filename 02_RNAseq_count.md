@@ -241,11 +241,9 @@ A travelling workshop. Comes to the triangle every few so often.
 #### MOOCS
 
 COURSERA COURSES   
-[R programming COURSERA](https://www.coursera.org/course/rprog)   
-This is part of the [Data Science Specialization](https://www.coursera.org/specializations/jhudatascience/1). I like this whole series. It's *FREE* unless you want certification.  
+[R programming COURSERA](https://www.coursera.org/course/rprog)  This is part of the [Data Science Specialization](https://www.coursera.org/specializations/jhudatascience/1). I like this whole series. It's *FREE* unless you want certification.  
 
-[Genome Science](https://www.coursera.org/specialization/genomics/41?utm_medium=catalog)   
-I haven't taken this, but it looks pretty interesting.      
+[Genome Science](https://www.coursera.org/specialization/genomics/41?utm_medium=catalog)  I haven't taken this, but it looks pretty interesting.      
 
 EDX COURSES   
 [Case studies in RNA-seq](https://www.edx.org/course/case-study-rna-seq-data-analysis-harvardx-ph525-5x)    
