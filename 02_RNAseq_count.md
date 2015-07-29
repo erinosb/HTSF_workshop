@@ -161,6 +161,37 @@ You will need to substitute "<yourversion>/02DESeqDemo/" with something that is 
 homedir=("<yourversion>/02_DESeqDemo/")
 ```
 
+Now let's load up the data from the `input/` folder
+
+```R
+#Switch to the input folder
+inputdir = paste(homedir, "input", sep = "/")
+setwd(inputdir)
+
+#Import the dataset
+Counts_bbmap <- read.table("counts_bbmap.txt", header = TRUE, row.names=1)  
+```
+
+
+Great now we have the data uploaded! Let's look at it.
+Execute each line one by one
+
+```R
+head(Counts_bbmap)        # Peek at Counts_bbmap
+dim(Counts_bbmap)         # What are the dimensions?
+summary(Counts_bbmap)     # What do the values of each sample represent?
+str(Counts_bbmap)         # What is the structure of the dataset
+
+```
+
+To quit out of R interactive, type
+
+```R
+q()
+```
+
+
+
 Alternatively, you can execute R on the command line like so...
 
 ```
