@@ -14,7 +14,7 @@ ____
 + # -- comment out
 + Relative paths versus absolute paths
 + On command line notation
-+ On /proj/data/seq
++ On /proj/seq/data
 + On annotation files
 
 
