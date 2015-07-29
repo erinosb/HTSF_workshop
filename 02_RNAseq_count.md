@@ -123,8 +123,7 @@ Make a file structure
 #Navigate to <yourversion>
 
 #EXECUTE THESE COMMANDS:    
-$ pwd                                   # Check you are in <yourversion> which is probably /netscr/<youronyen/
-$ mkdir 02_DESeqDemo
+$ pwd                                   # Check you are in <yourversion> which is probably /netscr/<youronyen>
 $ cp -r /netscr/erinosb/HTSF_RNASeq_Demo/02_DESeq2Demo .
 $ ls
 ```
