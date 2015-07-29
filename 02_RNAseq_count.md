@@ -198,6 +198,38 @@ Alternatively, you can execute R on the command line like so...
 $ bsub -q week -n 1 -o %J_deseq.log "R --vanilla < deseq2_demo_EON_150725.R"
 ```
 
+## Getting R and Rstudio to work for you.
+
+You can download R locally:
+
+[R for MACS](https://cran.r-project.org/bin/macosx/)
+
+[R for windows](https://cran.r-project.org/bin/windows/)
+
+
+You can also load Rstudio locally. 
+
+[https://www.rstudio.com/](https://www.rstudio.com/)
+
+## Learning More computational biology and bioinformatics at UNC and beyond:
+
+[Classes and workshops at UNC, MOOCS](http://www.med.unc.edu/oge/student-resources/quantitative-skills-resources)
+
+[Health Science Library workshops](http://guides.lib.unc.edu/c.php?g=8359&p=43018)
+
+[ITS workshop series]()
+
+[How to learn to code - 10 week summer workshop at UNC](http://howtolearntocode.web.unc.edu/)
+
+
+
+
+
+
+
+
+
+
 
 
 
