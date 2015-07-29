@@ -224,6 +224,9 @@ Hemant's courses... highly recommend! There are also online resources (pptx) and
 [ITS workshop series](http://reg.abcsignup.com/view/view_month.aspx?as=52&wp=887&aid=UNC-ITS)   
 Nothing is listed now, but a list will pop up when the fall semester starts. I particularly liked intermediate linux course! They have workshops on python (intro and intermediate), linux (intro and intermediate), scipy (intermerdiate), killdevil (intro).   
 
+Research Computing Office Hours   
+from RC: "This is your weekly reminder that Research Computing staff will be available for consultation today, Thursday, from 2-3 in room 328 of Health Sciences Library, please feel free to stop by..."   
+
 [How to learn to code - 10 week summer workshop at UNC](http://howtolearntocode.web.unc.edu/)   
 A new experience. 10 weeks of lectures on themes in bioinformatics and computational biology aimed at bench biologists. 8 weeks of hands on coding in a language of your choice (python, R, MATLAB, perl, bash)   
 
