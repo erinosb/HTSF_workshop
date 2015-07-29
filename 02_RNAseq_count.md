@@ -213,7 +213,7 @@ You can also load Rstudio locally.
 
 ## Learning More computational biology and bioinformatics at UNC and beyond:
 
-**AT UNC**
+#### UNC
 
 [Classes and workshops at UNC, MOOCS](http://www.med.unc.edu/oge/student-resources/quantitative-skills-resources).   
 Specific classes in different departments.   
@@ -228,11 +228,14 @@ Nothing is listed now, but a list will pop up when the fall semester starts. I p
 A new experience. 10 weeks of lectures on themes in bioinformatics and computational biology aimed at bench biologists. 8 weeks of hands on coding in a language of your choice (python, R, MATLAB, perl, bash)   
 
 
-**AROUND**   
+#### AROUND  
 [Software Carpentry](http://software-carpentry.org/workshops/)   
 A travelling workshop. Comes to the triangle every few so often.   
 
-**MOOCS**
+[Cold Spring Harbor](https://meetings.cshl.edu/courseshome.aspx)
+
+
+#### MOOCS
 
 COURSERA COURSES   
 [R programming COURSERA](https://www.coursera.org/course/rprog)   
@@ -242,11 +245,9 @@ This is part of the [Data Science Specialization](https://www.coursera.org/speci
 I haven't taken this, but it looks pretty interesting.      
 
 EDX COURSES   
-[Case studies in RNA-seq](https://www.edx.org/course/case-study-rna-seq-data-analysis-harvardx-ph525-5x)  
-
-[Case studies in ChIP-seq](https://www.edx.org/course/case-study-chip-seq-data-analysis-harvardx-ph525-7x) 
-
-I don't know anyone who has done these. It they are self-paced classes. 
+[Case studies in RNA-seq](https://www.edx.org/course/case-study-rna-seq-data-analysis-harvardx-ph525-5x)    
+[Case studies in ChIP-seq](https://www.edx.org/course/case-study-chip-seq-data-analysis-harvardx-ph525-7x)    
+I don't know anyone who has done these. It they are self-paced classes.   
 
 OTHER MOOCS
 There are a ton of MOOCS out there. Find some friends and get going!
