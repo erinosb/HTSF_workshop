@@ -112,6 +112,7 @@ We will need htseq-counts, and r
 ```
 #EXECUTE THESE COMMANDS
 $ module load r
+$ module load pico
 ```
 
 #### Get the DESeq2 files...
@@ -198,6 +199,27 @@ Alternatively, you can execute R on the command line like so...
 $ bsub -q week -n 1 -o %J_deseq.log "R --vanilla < deseq2_demo_EON_150725.R"
 ```
 
+For this to work, you will need to change one line of code...
+
+```R
+#homedir="/netscr/erinosb/HTSF_RNASeq_Demo/02_DESeq2Demo" ##  CHANGE this PATH TO YOUR CURRENT WORKING DIRECTORY ($ pwd)
+```
+
+You'll need to remove the # sign so this line will execute
+You'll need to add your `$pwd` to this line as you did in the interactive session.
+
+To do this, use fugu, cyberduck, or pico...
+
+```
+pico deseq2_demo_EON_150725.R
+```
+
+* scroll down with `CTRL+V` or `down keys`
+* Exit with `CTRL+X`
+* SAVE changes. `Y` then `RETURN`
+
+
+
 ## Getting R and Rstudio to work for you.
 
 You can download R locally:
@@ -210,6 +232,11 @@ You can download R locally:
 You can also load Rstudio locally. 
 
 [https://www.rstudio.com/](https://www.rstudio.com/)
+
+&nbsp;
+
+&nbsp;
+____
 
 ## Learning More computational biology and bioinformatics at UNC and beyond:
 
