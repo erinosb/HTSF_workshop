@@ -137,8 +137,28 @@ You have just copied over a downsampled set of the Male versus Female dataset, a
 Copy and paste each line of code from `deseq2_demo_EON_150725.R` into an interactive browser session using 
 
 ```
+#Navigate to <yourversion>/02_DESeqDemo/
+$ pwd                               # check that you are in <yourversion>/02_DESeqDemo
 $ bsub --Ip R
-#Copy and paste commands into the interactive prompt
+# We will copy and paste commands into the interactive prompt
+```
+
+We will start by loading up some packages into R.
+Copy and paste the following things into your command line:
+
+```R
+library("DESeq2")
+library("RColorBrewer")
+library("gplots")
+library("ggplot2")
+```
+
+Next, tell the script your current working directory
+You will need to substitute "<yourversion>/02DESeqDemo/" with something that is specific to your current working directory. This should be the same as what you call when you type `$pwd` in double quotes.
+
+
+```R
+homedir=("<yourversion>/02_DESeqDemo/")
 ```
 
 Alternatively, you can execute R on the command line like so...
@@ -146,6 +166,8 @@ Alternatively, you can execute R on the command line like so...
 ```
 $ bsub -q week -n 1 -o %J_deseq.log "R --vanilla < deseq2_demo_EON_150725.R"
 ```
+
+
 
 
 
