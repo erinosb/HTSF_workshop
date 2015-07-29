@@ -165,7 +165,7 @@ Now let's load up the data from the `input/` folder
 
 ```R
 #Switch to the input folder
-inputdir = paste(homedir, "input", sep = "/")
+inputdir = paste(homedir, "input", sep = "")
 setwd(inputdir)
 
 #Import the dataset
